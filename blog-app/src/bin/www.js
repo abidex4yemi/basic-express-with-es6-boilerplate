@@ -35,7 +35,7 @@ server.on('listening', onListening);
  * Normalize a port into a number, string, or false.
  */
 
-const normalizePort = val => {
+function normalizePort(val) {
 	var port = parseInt(val, 10);
 
 	if (isNaN(port)) {
@@ -49,13 +49,13 @@ const normalizePort = val => {
 	}
 
 	return false;
-};
+}
 
 /**
  * Event listener for HTTP server "error" event.
  */
 
-const onError = error => {
+function onError(error) {
 	if (error.syscall !== 'listen') {
 		throw error;
 	}
@@ -75,14 +75,14 @@ const onError = error => {
 		default:
 			throw error;
 	}
-};
+}
 
 /**
  * Event listener for HTTP server "listening" event.
  */
 
-const onListening = () => {
+function onListening() {
 	var addr = server.address();
 	var bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
 	debug('Listening on ' + bind);
-};
+}
